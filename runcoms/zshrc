@@ -11,3 +11,28 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+setopt nobeep
+setopt no_share_history
+
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f /etc/dir_colors ] && eval `dircolors /etc/dir_colors`
+
+export PATH="$PATH:$HOME/.gem/ruby/2.1.0/bin:$HOME/bin:$HOME/.composer/vendor/bin"
+export EDITOR=vim
+export PAGER=less
+
+stty stop undef # to unmap ctrl-s
+
+source ~/.zprezto/gibo-completion.zsh
+
+if [[ -f /usr/bin/virtualenvwrapper.sh ]]; then
+    export WORKON_HOME=~/python/envs
+    export PROJECT_HOME=~/web/python
+    mkdir -p $WORKON_HOME $PROJECT_HOME
+
+    source /usr/bin/virtualenvwrapper.sh
+fi
+
+# fortune
+fortune -a | cowthink -sn

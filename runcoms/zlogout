@@ -4,6 +4,9 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+#
+
+echo >! $HISTFILE
 
 # Print the message.
 cat <<-EOF
